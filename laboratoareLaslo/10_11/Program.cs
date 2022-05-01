@@ -1,5 +1,5 @@
 ﻿using System;
-// primul laborator cu Laslo 
+// primul laborator cu Laslo | pbinfo.ro (1000 pct. saptamana) | workopt.wixsite.com/work 
 
 namespace _10_11
 {
