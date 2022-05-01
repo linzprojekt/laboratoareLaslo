@@ -1,29 +1,76 @@
 ﻿using System;
 // primul laborator cu Laslo 
 
-
-
-
 namespace _10_11
 {
     internal class Program
     {
-        
+        static Random rnd = new Random();
         static void Main(string[] args)
         {
             // #2 ConsoleApp | Se da n si apoi n numere intregi. Sa se determine Suma celor mai mari 3 maxime
             // Date intrare: 18
-            // 1 2 5 2 7 6 4 60 70 4 2 3 5 2 25 60 3 56 19
+            // 1 2 5 2 7 6 4 60 70 4 2 3 5 25 60 3 56 19
             // Date de iesire
             // 190 = 70 + 60 + 60 
 
             // 1 2 5 2 7 6 4 60 70 4 2 3 5 2 25 60 3 56 19 -> ??? (ar trebui sa le salvez intr-un vector)
             // 1 2 2 2 3 3 4 4 5 5 6 7 19 25 56 60 60 70 
 
+            int n = int.Parse(Console.ReadLine()); // citre n 
+            int m1, m2, m3;
+            //m1 = int.Parse(Console.ReadLine());
+            //m2 = int.Parse(Console.ReadLine());
+            //m3 = int.Parse(Console.ReadLine());
+            m1 = rnd.Next(100); Console.Write(m1 + " ");
+            m2 = rnd.Next(100); Console.Write(m2 + " ");
+            m3 = rnd.Next(100); Console.Write(m3 + " ");
+            // m1 <= m2 <= m3 
 
+            if (m1 > m2)
+            {
+                int aux = m1;
+                m1 = m2;
+                m2 = aux;
+            }
+            if (m1 > m3)
+            {
+                int aux = m1;
+                m1 = m3;
+                m3 = aux;
+            }
+            if (m2 > m3)
+            {
+                int aux = m2;
+                m2 = m3;
+                m3 = aux;
+            }
 
-            // video - lab01 Laslo -> min 70 (1h 10min) /1h42min
+            for (int i = 3; i < n; i++)
+            {
+                int x = rnd.Next(100); Console.Write(x + " ");
+                if (x >= m3)
+                {
+                    m1 = m2;
+                    m2 = m3;
+                    m3 = x;
 
+                }   
+                else if ( x >= m2)
+                {
+                    m1 = m2;
+                    m2 = x;
+
+                }
+                else if (x >= m1)
+                {
+                    m1 = x;
+                }
+            }
+            Console.Write("Rezultatul sumei dintre m1, m2 si m3 este: ");
+            Console.Write(m1 + m2 + m3);
+            Console.ReadKey();
+            
         }
     }
 }
